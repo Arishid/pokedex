@@ -152,6 +152,24 @@ ol {
 
 }
 
+/* sublinhado padrão (invisível) */
+    .aba::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 2px;
+        background-color: #333;
+        transition: width 0.3s;
+    }
+
+    /* quando a aba está ativa, mostra o sublinhado */
+    .aba.active::after {
+        width: 100%;
+    }
+
+
 .ativa {
     width: 100px;
     height: 30px;

@@ -73,7 +73,6 @@ function preencherModalById(pokemon, modal) {
                 </ul>
             </div>
             <div id="contentAbility"></div>
-            </div>
         </div>
     `;
 
@@ -87,7 +86,22 @@ function preencherModalById(pokemon, modal) {
 
 function inserirConteudo(pokemon, aba) {
     const conteudo = document.getElementById('contentAbility');
-    if (aba === 'contentAbility') {
+     if (aba === 'contentAbout') {
+         selecionado = document.getElementById('tabAbout');
+         selecionado.style.textDecoration = 'underline';    
+
+         document.getElementById('tabAbility').style.textDecoration = 'none';
+        conteudo.innerHTML = `
+            <div id="Sobre" class="ModalDescricao">
+                Mais detalhes em breve
+            </div>
+        `;
+     }
+    else if (aba === 'contentAbility') {
+         selecionado = document.getElementById('tabAbility');
+         selecionado.style.textDecoration = 'underline';    
+
+         document.getElementById('tabAbout').style.textDecoration = 'none';
         conteudo.innerHTML = `
             <div id="Abilidades" class="ModalDescricao">
                 ${pokemon.abilities.map((abilidades) => `<li>${abilidades.ability.name}</li>`).join('')}
@@ -96,6 +110,7 @@ function inserirConteudo(pokemon, aba) {
     }else{
         conteudo.innerHTML = ``;
     }
+    
 }
 
 document.getElementById('closeModal').addEventListener('click', () => {
