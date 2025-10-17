@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./assets/css/global.css"> 
     <!-- CSS Pokedex -->
     <link rel="stylesheet" href="./assets/css/pokedex.css" />
+    <!-- CSS Modal -->
+    <link rel="stylesheet" href="./assets/css/modal.css" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +22,13 @@
 </head>
 <body>
     <section class="content">
+        <!-- Modal -->
+        <div id="pokemonModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <div id="modalBody"></div>
+            </div>
+        </div>
         <h1>Pokedex</h1>
         <ol id = 'pokemonList' class="pokemons">
         </ol>
