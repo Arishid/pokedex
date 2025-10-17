@@ -16,7 +16,7 @@ function convertPokemonToLi(pokemon, index, array) {
                     <ol class="tipos">
                         ${pokemon.types.map((types) => `<li class="tipo ${pokemon.type}">${types.type.name}</li>`).join('')}
                     </ol>
-                    <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/${numero}.png" alt="${pokemon.name}"/>
+                    <img src="${pokemon.photo}" alt="${pokemon.name}"/>
                 </div> 
             </li>
    `
@@ -50,19 +50,52 @@ function preencherModalById(pokemon, modal) {
     const modalBody = document.getElementById('modalBody');
     modalBody.className = pokemon.type;
     modalBody.innerHTML = `
-        <div id="sobre">
-            <h2>Pokémon ID: ${pokemon.id}</h2>
-            <p>Mais detalhes em breve...</p>
-           
+        <div id="sobre" class="ModalTitulo">
+            <div class='pokemon'>
+                <h2>${pokemon.name}</h2>
+                <img src="${pokemon.photo}" alt="${pokemon.name}"/>
+            </div>
         </div>
-        <div id="Abilidades">
-                ${pokemon.abilities.map((abilidades) => `<h3>${abilidades.ability.name}</h3>`).join('')}
+
+        <div class="TabControl">
+            <div id="header">
+                <ul class="abas">
+                    <li>
+                        <div class="aba" id="tabAbout">
+                            <span>Sobre</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="aba" id="tabAbility">
+                            <span>Abilidades</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="contentAbility"></div>
+            </div>
         </div>
-        <button id="closeBtn" class="fechar">Fechar</button>
     `;
-    document.getElementById('closeBtn').addEventListener('click', () => {
+
+    document.getElementById('tabAbout').addEventListener('click', () => inserirConteudo(pokemon, 'contentAbout'));
+    document.getElementById('tabAbility').addEventListener('click', () => inserirConteudo(pokemon, 'contentAbility'));
+
+    document.getElementById('closeModal').addEventListener('click', () => {
         modal.style.display = 'none';
     });
+}
+
+function inserirConteudo(pokemon, aba) {
+    const conteudo = document.getElementById('contentAbility');
+    if (aba === 'contentAbility') {
+        conteudo.innerHTML = `
+            <div id="Abilidades" class="ModalDescricao">
+                ${pokemon.abilities.map((abilidades) => `<li>${abilidades.ability.name}</li>`).join('')}
+            </div>
+        `;
+    }else{
+        conteudo.innerHTML = ``;
+    }
 }
 
 document.getElementById('closeModal').addEventListener('click', () => {

@@ -1,3 +1,14 @@
+* {
+    list-style: none;
+    font-family: Roboto, sans-serif;
+}
+
+ol {
+    padding-left: 20px;
+    display: flex;
+    display-direction: row;
+}
+
 #pokemonModal {
     display: none;
     justify-content: center;
@@ -5,6 +16,15 @@
     position: fixed;
     inset: 0;
     background-color: rgb(0 0 0 / 50%);
+}
+.tabControl {
+    width: 100%;
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
 }
 
 .modal {
@@ -17,20 +37,32 @@
   height: 100%;
   background-color: rgba(0,0,0,0.5);
 }
+
+.ModalTitulo {
+    color: rgb(255, 255, 255);
+}
+
+.ModalDescricao {
+    background-color: #ffffff;
+    border-radius: 12px;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
 .modal-content {
-  background-color: white;
   margin: 10% auto;
-  padding: 20px;
   border-radius: 12px;
   width: 300px;
   text-align: center;
+
 }
 .close {
   float: right;
   font-size: 22px;
   cursor: pointer;
 }
-
 
 .normal {
     background-color: #a6a877;
@@ -76,9 +108,84 @@
 }
 
 #modalBody {
-    padding: 20px;
     border-radius: 12px;
     width: 400px;
     max-width: 90%;
     position: relative;
+}
+
+.TabControl {
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+}
+
+.TabControl #header {
+    width: 100%;
+    background-color: white;
+    overflow: hidden;
+    cursor: hand
+}
+
+.TabControl #content {
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.TabControl .abas {
+    display: inline;
+}
+
+.TabControl .abas li {
+    float: left
+}
+
+.aba {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 5px;
+    color: black;
+    font-size: 0.925rem;
+
+}
+
+.ativa {
+    width: 100px;
+    height: 30px;
+    border: solid 1 px;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 5px;
+    background: #27408B;
+}
+
+.ativa span,
+.selected span {
+    color: #fff
+}
+
+.TabControl #content {
+    background: #ffffff
+}
+
+.TabControl .conteudo { 
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+    height: 100%;
+    color: #000000;
+    display: none;
+}
+
+.selected {
+    width: 100px;
+    height: 30px;
+    border: solid 1 px;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 5px;
+    background: #27408B
 }
